@@ -2,7 +2,7 @@ use ass_parser::AssFile;
 
 fn main() -> Result<(), std::io::Error>{
     let ass_file = AssFile::from_file("examples/subtitles.ass")?;
-    let dialogues = ass_file.events.dialogues.dialogues.clone();
+    let dialogues = ass_file.events.get_dialogues().dialogues.clone();
 
     for dialogue in dialogues {
         println!("layer: {:?}", &dialogue.get_layer());
