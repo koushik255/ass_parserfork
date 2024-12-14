@@ -69,7 +69,6 @@ Style: Default,Arial,16,&H00ff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:01.00,Default,,0,0,0,,Hello Friend
 ```
 
 # Add Dialogues
@@ -90,8 +89,8 @@ fn main() -> Result<(), IndexNotFound>{
 
     let second_dialogue = Dialogue::default()
         .set_text("Hello Friend!")
-        .set_start("00:00.50")
-        .set_end("00:00.58");
+        .set_start("0:00:00.50")
+        .set_end("0:00:00.58");
 
     let third_dialogue = Dialogue::default()
         .set_text("Hello World!!")
