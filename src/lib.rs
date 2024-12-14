@@ -810,6 +810,31 @@ pub struct Events {
 }
 
 impl Events {
+    /// Returns a Clone of `Dialogues`
+    /// You can then use this to access fields of `Dialogue`.
+    /// ```rust 
+    /// let dialogues = ass_file.events.get_dialogues().dialogues.clone();
+
+    /// for dialogue in dialogues {
+    ///     println!("layer: {:?}", &dialogue.get_layer());
+    ///     println!("name: {:?}", &dialogue.get_name());
+    ///     println!("end: {:?}", &dialogue.get_end());
+    ///     println!("start: {:?}", &dialogue.get_start());
+    ///     println!("text: {:?}", &dialogue.get_text());
+    ///     println!("marginl: {:?}", &dialogue.get_marginl());
+    ///     println!("marginr: {:?}", &dialogue.get_marginr());
+    ///     println!("marginv: {:?}", &dialogue.get_marginv());
+    ///     println!("style: {:?}", &dialogue.get_style());
+    ///     println!("effect: {:?}", &dialogue.get_effect());
+    ///     println!("colour: {:?}", &dialogue.get_colour());
+    /// }
+    /// ```
+    pub fn get_dialogues(&self) -> Vec<Dialogue> {
+        return self.dialogues.dialogues.clone();
+    }
+}
+
+impl Events {
     /// Create a new instance of Event.
     /// This will have `None` for all the fields for EventFormat. 
     pub fn new() -> Events {
