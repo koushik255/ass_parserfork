@@ -806,7 +806,7 @@ impl V4Format {
 
 #[derive(Debug, PartialEq, Clone)]
 pub struct Events {
-    dialogues: Dialogues,
+    pub dialogues: Dialogues,
 }
 
 impl Events {
@@ -941,8 +941,8 @@ impl Events {
 /// # Dialogues
 /// This stores each `Dialogue: ` field in an `Advanced SubStation File`
 #[derive(Debug, PartialEq,Clone)]
-struct Dialogues {
-    dialogues: Vec<Dialogue>
+pub struct Dialogues {
+    pub dialogues: Vec<Dialogue>
 }
 
 /// A single `Dialogue` which contain `event` which can be used to modify the state of a
@@ -964,6 +964,7 @@ struct EventFormat {
     marginv: Option<String>,
     effect: Option<String>,
     text: Option<String>,
+    color: Option<String>
 }
 
 impl Default for EventFormat {
@@ -979,6 +980,7 @@ impl Default for EventFormat {
             marginv: Some("0".to_string()),
             effect: Some("".to_string()),
             text: None,
+            color: None,
         }
     }
 }
@@ -997,6 +999,7 @@ impl Dialogue {
                 marginv: None,
                 effect: None,
                 text: None,
+                color: None,
             }
         }
     }
@@ -1099,17 +1102,82 @@ impl Dialogue {
 	}
 
     /// set the color of the subtitle.
-    pub fn set_colour(self, color: HexColor) -> Self {
+    pub fn set_colour(mut self, color: HexColor) -> Self {
         let colour = AssFileOptions::get_ass_color_text(color);
         match &self.event.text {
             Some(text) => {
-                let new_text = &(colour + text);
-                self.set_text(new_text)
+                let new_text = &(colour.clone() + text);
+                // If you know a better way, please do create a pull request
+                self = self.clone().set_text(new_text);
+                self.event.color = Some(colour);
+                self
             },
             None => {
+                self.event.color = Some(colour.clone());
                 self.set_text(&colour)
             }
         }
+    }
+}
+
+
+impl Dialogue {
+    /// get the layer of the subtitle
+    pub fn get_layer(&self) -> Option<String> {
+				return self.event.layer.clone();
+	}
+    /// get the start time of the `Dialogue`
+    /// Start Time of the Event, in 0:00:00:00 format ie. Hrs:Mins:Secs:hundredths. This is the time elapsed during script playback at which the text will appear onscreen. Note that there is a single digit for the hours!
+    pub fn get_start(&self) -> Option<String> {
+				return self.event.start.clone();
+    }
+	/// get the end time of the `Dialogue`.
+    ///  End Time of the Event, in 0:00:00:00 format ie. Hrs:Mins:Secs:hundredths. This is the time elapsed during script playback at which the text will disappear offscreen. Note that there is a single digit for the hours!
+    pub fn get_end(&self) -> Option<String> {
+				return self.event.end.clone();
+	}
+    /// get the style of the `Dialogue`.
+    pub fn get_style(&self) -> Option<String> {
+				return self.event.style.clone();
+	}
+    /// get the name of the `Dialogue`.
+    ///  Character name. This is the name of the character who speaks the dialogue. It is for information only, to make the script is easier to follow when editing/timing.
+    pub fn get_name(&self) -> Option<String> {
+				return self.event.name.clone();
+	}
+    /// get the marginl of the `Dialogue`.
+    /// 4-figure Left Margin override. The values are in pixels. All zeroes means the default margins defined by the style are used.
+    pub fn get_marginl(&self) -> Option<String> {
+				return self.event.marginl.clone();
+	}
+    /// get the marginr of the `Dialogue`.
+    ///  4-figure Right Margin override. The values are in pixels. All zeroes means the default margins defined by the style are used.
+    pub fn get_marginr(&self) -> Option<String> {
+				return self.event.marginr.clone();
+	}
+    /// get the marginv of the `Dialogue`.
+    ///  4-figure Bottom Margin override. The values are in pixels. All zeroes means the default margins defined by the style are used.
+    pub fn get_marginv(&self) -> Option<String> {
+				return self.event.marginv.clone();
+	}
+    /// get the effects for the Dialogue object.
+    /// Transition Effect. This is either empty, or contains information for one of the three transition effects implemented in SSA v4.x
+    /// The effect names are case sensitive and must appear exactly as shown. The effect names do not have quote marks around them.
+    /// "Karaoke" means that the text will be successively highlighted one word at a time.
+    /// Karaoke as an effect type is obsolete.
+    pub fn get_effect(&self) -> Option<String> {
+				return self.event.effect.clone();
+	}
+    /// get the text for the subtitle.
+    /// Subtitle Text. This is the actual text which will be displayed as a subtitle onscreen. Everything after the 9th comma is treated as the subtitle text, so it can include commas.
+    /// The text can include \n codes which is a line break, and can include Style Override control codes, which appear between braces { }.
+    pub fn get_text(&self) -> Option<String> {
+				return self.event.text.clone();
+	}
+
+    /// get the color of the subtitle.
+    pub fn get_colour(&self) -> Option<String> {
+        return self.event.color.clone()
     }
 }
 
@@ -1519,7 +1587,7 @@ impl AssFile {
     /// use ass_parser::{AssFile, V4Format, AssFileOptions};
 
     ///
-    /// fn main() Result<(), std::io::Error>{
+    /// fn main() -> Result<(), std::io::Error>{
     ///    let mut ass_file = ass_parser::AssFile::from_file("subtitles.ass".to_string())?;
     ///    ass_file.components.script 
     ///        .set_scripttype("v4.00+".to_string())
