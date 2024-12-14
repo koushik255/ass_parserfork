@@ -1,8 +1,8 @@
-use ass_parser::AssFile;
+use ass_parser::{AssFile, Dialogue};
 
 fn main() -> Result<(), std::io::Error>{
     let ass_file = AssFile::from_file("examples/subtitles.ass")?;
-    let dialogues = ass_file.events.get_dialogues().dialogues.clone();
+    let dialogues: Vec<Dialogue> = ass_file.events.get_dialogues();
 
     for dialogue in dialogues {
         println!("layer: {:?}", &dialogue.get_layer());
