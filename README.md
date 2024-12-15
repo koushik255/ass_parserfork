@@ -214,6 +214,30 @@ fn main() -> Result<(), std::io::Error>{
 }
 ```
 
+# Read Contents of ASS Files
+
+To retrieve the values of fields present in each dialogue. You can load a `.ass` file and then access each dialogue details. 
+
+```rust
+use ass_parser::{AssFile, Dialogue};
+
+let ass_file = AssFile::from_file("examples/subtitles.ass")?;
+let dialogues: Vec<Dialogue> = ass_file.events.get_dialogues();
+
+for dialogue in dialogues {
+    println!("layer: {:?}", &dialogue.get_layer());
+    println!("name: {:?}", &dialogue.get_name());
+    println!("end: {:?}", &dialogue.get_end());
+    println!("start: {:?}", &dialogue.get_start());
+    println!("text: {:?}", &dialogue.get_text());
+    println!("marginl: {:?}", &dialogue.get_marginl());
+    println!("marginr: {:?}", &dialogue.get_marginr());
+    println!("marginv: {:?}", &dialogue.get_marginv());
+    println!("style: {:?}", &dialogue.get_style());
+    println!("effect: {:?}", &dialogue.get_effect());
+    println!("colour: {:?}", &dialogue.get_colour());
+}
+```
 
 
  # Added Support for SubRip files.
@@ -294,4 +318,3 @@ ffmpeg -i video.avi -vf "ass=new_subtitles.ass" output.avi
 [Deps.rs]: https://deps.rs/crate/ass_parser
 [Matrix Badge]: https://img.shields.io/matrix/ass_parser:matrix.org.svg?style=flat-square&logo=matrix&label=Matrix&color=C43AC3
 [Matrix]: https://matrix.to/#/#ass_parser:matrix.org
-
