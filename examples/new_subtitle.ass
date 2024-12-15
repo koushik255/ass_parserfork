@@ -1,0 +1,233 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 384
+PlayResY: 288
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,16,&H0ffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,10,10,1
+
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.00,Default,,0,0,0,,
+Dialogue: 0,00:00:00.734,00:00:01.301,Default,,0,0,0,,("Rap God" by Eminem) 
+Dialogue: 0,00:00:01.301,00:00:02.302,Default,,0,0,0,,♪ Look ♪ 
+Dialogue: 0,00:00:02.302,00:00:03.536,Default,,0,0,0,,♪ I was gonna go easy on you ♪ 
+Dialogue: 0,00:00:03.536,00:00:04.904,Default,,0,0,0,,♪ And not to hurt your feelings ♪ 
+Dialogue: 0,00:00:04.904,00:00:08.708,Default,,0,0,0,,♪ But I'm only going to get this one chance ♪ 
+Dialogue: 0,00:00:08.708,00:00:09.943,Default,,0,0,0,,♪ Six minutes ♪ 
+Dialogue: 0,00:00:09.943,00:00:11.211,Default,,0,0,0,,♪ Something's wrong, I can feel it ♪ 
+Dialogue: 0,00:00:11.211,00:00:12.479,Default,,0,0,0,,♪ Six minutes, Slim Shady, you're on ♪ 
+Dialogue: 0,00:00:12.479,00:00:14.147,Default,,0,0,0,,♪ Just a feeling I've got ♪ 
+Dialogue: 0,00:00:14.147,00:00:16.549,Default,,0,0,0,,♪ Like something's about to happen ♪ 
+Dialogue: 0,00:00:16.549,00:00:18.218,Default,,0,0,0,,♪ But I don't know what ♪ 
+Dialogue: 0,00:00:18.218,00:00:19.519,Default,,0,0,0,,♪ If that means what I think it means ♪ 
+Dialogue: 0,00:00:19.519,00:00:21.321,Default,,0,0,0,,♪ We're in trouble, big trouble ♪ 
+Dialogue: 0,00:00:21.321,00:00:23.089,Default,,0,0,0,,♪ And if he is as bananas as you say ♪ 
+Dialogue: 0,00:00:23.089,00:00:24.591,Default,,0,0,0,,♪ I'm not taking any chances ♪ 
+Dialogue: 0,00:00:24.591,00:00:26.092,Default,,0,0,0,,♪ You were just what the doc ordered ♪ 
+Dialogue: 0,00:00:26.092,00:00:29.129,Default,,0,0,0,,♪ I'm beginnin' to feel like a Rap God, Rap God ♪ 
+Dialogue: 0,00:00:29.129,00:00:32.365,Default,,0,0,0,,♪ All my people from the front to the back nod, back nod ♪ 
+Dialogue: 0,00:00:32.365,00:00:33.933,Default,,0,0,0,,♪ Now who thinks their arms are long enough ♪ 
+Dialogue: 0,00:00:33.933,00:00:35.535,Default,,0,0,0,,♪ To slap box, slap box? ♪ 
+Dialogue: 0,00:00:35.535,00:00:38.238,Default,,0,0,0,,♪ They said I rap like a robot, so call me Rapbot ♪ 
+Dialogue: 0,00:00:38.238,00:00:40.340,Default,,0,0,0,,♪ But for me to rap like a computer must be in my genes ♪ 
+Dialogue: 0,00:00:40.340,00:00:42.142,Default,,0,0,0,,♪ I got a laptop in my back pocket ♪ 
+Dialogue: 0,00:00:42.142,00:00:43.676,Default,,0,0,0,,♪ My pen'll go off when I half-cock it ♪ 
+Dialogue: 0,00:00:43.676,00:00:45.278,Default,,0,0,0,,♪ Got a fat knot from that rap profit ♪ 
+Dialogue: 0,00:00:45.278,00:00:46.780,Default,,0,0,0,,♪ Made a living and a killing off it ♪ 
+Dialogue: 0,00:00:46.780,00:00:48.314,Default,,0,0,0,,♪ Ever since Bill Clinton was still in office ♪ 
+Dialogue: 0,00:00:48.314,00:00:50.183,Default,,0,0,0,,♪ With Monica Lewinsky feeling on his nut-sack ♪ 
+Dialogue: 0,00:00:50.183,00:00:51.751,Default,,0,0,0,,♪ I'm an MC still as honest ♪ 
+Dialogue: 0,00:00:51.751,00:00:53.520,Default,,0,0,0,,♪ But as rude and indecent as all hell syllables ♪ 
+Dialogue: 0,00:00:53.520,00:00:54.387,Default,,0,0,0,,♪ Killaholic ♪ 
+Dialogue: 0,00:00:54.387,00:00:55.822,Default,,0,0,0,,♪ Kill 'em all with ♪ 
+Dialogue: 0,00:00:55.822,00:00:57.424,Default,,0,0,0,,♪ This slickety, gibbedy, hibbedy hip hop ♪ 
+Dialogue: 0,00:00:57.424,00:00:58.425,Default,,0,0,0,,♪ You don't really wanna get into a pissing match ♪ 
+Dialogue: 0,00:00:58.425,00:00:59.759,Default,,0,0,0,,♪ With this rappidy brat ♪ 
+Dialogue: 0,00:00:59.759,00:01:01.061,Default,,0,0,0,,♪ Packing a Mac in the back of the Ac ♪ 
+Dialogue: 0,00:01:01.061,00:01:02.328,Default,,0,0,0,,♪ Backpack rap crap, yap-yap, yackety-yac ♪ 
+Dialogue: 0,00:01:02.328,00:01:03.830,Default,,0,0,0,,♪ And at the exact same time, I attempt these ♪ 
+Dialogue: 0,00:01:03.830,00:01:05.265,Default,,0,0,0,,♪ Lyrical acrobat stunts while I'm practicin' that ♪ 
+Dialogue: 0,00:01:05.265,00:01:06.566,Default,,0,0,0,,♪ I'll still be able to break a motherfuckin' table ♪ 
+Dialogue: 0,00:01:06.566,00:01:07.400,Default,,0,0,0,,♪ Over the back of a couple of faggots ♪ 
+Dialogue: 0,00:01:07.400,00:01:08.902,Default,,0,0,0,,♪ And crack it in half ♪ 
+Dialogue: 0,00:01:08.902,00:01:10.036,Default,,0,0,0,,♪ Only realized it was ironic, I was signed to ♪ 
+Dialogue: 0,00:01:10.036,00:01:11.638,Default,,0,0,0,,♪ Aftermath after the fact ♪ 
+Dialogue: 0,00:01:11.638,00:01:13.139,Default,,0,0,0,,♪ How could I not blow? ♪ 
+Dialogue: 0,00:01:13.139,00:01:14.641,Default,,0,0,0,,♪ All I do is drop F-bombs, feel my wrath of attack ♪ 
+Dialogue: 0,00:01:14.641,00:01:16.776,Default,,0,0,0,,♪ Rappers are havin' a rough time period, here's a maxipad ♪ 
+Dialogue: 0,00:01:16.776,00:01:19.079,Default,,0,0,0,,♪ It's actually disastrously bad for the wack ♪ 
+Dialogue: 0,00:01:19.079,00:01:21.147,Default,,0,0,0,,♪ While I'm masterfully constructing this masterpiece as ♪ 
+Dialogue: 0,00:01:21.147,00:01:24.284,Default,,0,0,0,,♪ 'Cause I'm beginnin' to feel like a Rap God, Rap God ♪ 
+Dialogue: 0,00:01:24.284,00:01:27.487,Default,,0,0,0,,♪ All my people from the front to the back nod, back nod ♪ 
+Dialogue: 0,00:01:27.487,00:01:28.988,Default,,0,0,0,,♪ Now who thinks their arms are long enough ♪ 
+Dialogue: 0,00:01:28.988,00:01:30.723,Default,,0,0,0,,♪ To slap box, slap box? ♪ 
+Dialogue: 0,00:01:30.723,00:01:32.325,Default,,0,0,0,,♪ Let me show you maintainin' this shit ♪ 
+Dialogue: 0,00:01:32.325,00:01:34.027,Default,,0,0,0,,♪ Ain't that hard, that hard ♪ 
+Dialogue: 0,00:01:34.027,00:01:35.295,Default,,0,0,0,,♪ Everybody wants the key and the secret ♪ 
+Dialogue: 0,00:01:35.295,00:01:37.197,Default,,0,0,0,,♪ To rap immortality like I have got ♪ 
+Dialogue: 0,00:01:37.197,00:01:38.398,Default,,0,0,0,,♪ Well, to be truthful the blueprint's ♪ 
+Dialogue: 0,00:01:38.398,00:01:39.933,Default,,0,0,0,,♪ Simply rage and youthful exuberance ♪ 
+Dialogue: 0,00:01:39.933,00:01:41.434,Default,,0,0,0,,♪ Everybody loves to root for a nuisance ♪ 
+Dialogue: 0,00:01:41.434,00:01:42.702,Default,,0,0,0,,♪ Hit the earth like an asteroid ♪ 
+Dialogue: 0,00:01:42.702,00:01:44.003,Default,,0,0,0,,♪ Did nothing but shoot for the moon since ♪ 
+Dialogue: 0,00:01:44.003,00:01:45.271,Default,,0,0,0,,♪ Pew! ♪ 
+Dialogue: 0,00:01:45.271,00:01:46.806,Default,,0,0,0,,♪ MCs get taken to school with this music ♪ 
+Dialogue: 0,00:01:46.806,00:01:48.274,Default,,0,0,0,,♪ 'Cause I use it as a vehicle to "bus the rhyme" ♪ 
+Dialogue: 0,00:01:48.274,00:01:49.976,Default,,0,0,0,,♪ Now I lead a new school full of students ♪ 
+Dialogue: 0,00:01:49.976,00:01:52.745,Default,,0,0,0,,♪ Me? I'm a product of Rakim, Lakim Shabazz, 2Pac ♪ 
+Dialogue: 0,00:01:52.745,00:01:55.515,Default,,0,0,0,,♪ N.W.A., Cube, hey Doc, Ren, Yella, Eazy, thank you ♪ 
+Dialogue: 0,00:01:55.515,00:01:57.784,Default,,0,0,0,,♪ They got Slim inspired enough to one day grow up ♪ 
+Dialogue: 0,00:01:57.784,00:01:59.419,Default,,0,0,0,,♪ Blow up and be in a position ♪ 
+Dialogue: 0,00:01:59.419,00:02:01.254,Default,,0,0,0,,♪ To meet Run-DMC and induct them into the ♪ 
+Dialogue: 0,00:02:01.254,00:02:03.556,Default,,0,0,0,,♪ Motherfuckin' Rock and Roll Hall of Fame ♪ 
+Dialogue: 0,00:02:03.556,00:02:04.757,Default,,0,0,0,,♪ Even though I'll walk in the church ♪ 
+Dialogue: 0,00:02:04.757,00:02:05.992,Default,,0,0,0,,♪ And burst in a ball of flames ♪ 
+Dialogue: 0,00:02:05.992,00:02:07.494,Default,,0,0,0,,♪ Only Hall of Fame I'll be inducted in ♪ 
+Dialogue: 0,00:02:07.494,00:02:08.761,Default,,0,0,0,,♪ Is the alcohol of fame ♪ 
+Dialogue: 0,00:02:08.761,00:02:10.029,Default,,0,0,0,,♪ On the wall of shame ♪ 
+Dialogue: 0,00:02:10.029,00:02:11.264,Default,,0,0,0,,♪ You fags think it's all a game ♪ 
+Dialogue: 0,00:02:11.264,00:02:13.366,Default,,0,0,0,,♪ 'Til I walk a flock of flames ♪ 
+Dialogue: 0,00:02:13.366,00:02:14.634,Default,,0,0,0,,♪ Off of a plank and ♪ 
+Dialogue: 0,00:02:14.634,00:02:16.102,Default,,0,0,0,,♪ Tell me what in the fuck are you thinkin'? ♪ 
+Dialogue: 0,00:02:16.102,00:02:17.137,Default,,0,0,0,,♪ Little gay-lookin' boy ♪ 
+Dialogue: 0,00:02:17.137,00:02:18.371,Default,,0,0,0,,♪ So gay I can barely say it ♪ 
+Dialogue: 0,00:02:18.371,00:02:19.506,Default,,0,0,0,,♪ With a straight face, lookin' boy (Ha!) ♪ 
+Dialogue: 0,00:02:19.506,00:02:20.807,Default,,0,0,0,,♪ You witnessing a mass-occur) ♪ 
+Dialogue: 0,00:02:20.807,00:02:21.774,Default,,0,0,0,,♪ Like you're watching a church gathering ♪ 
+Dialogue: 0,00:02:21.774,00:02:23.209,Default,,0,0,0,,♪ Take place, lookin' boy ♪ 
+Dialogue: 0,00:02:23.209,00:02:24.744,Default,,0,0,0,,♪ "Oy vey, that boy's gay!" ♪ 
+Dialogue: 0,00:02:24.744,00:02:26.045,Default,,0,0,0,,♪ That's all they say, lookin' boy ♪ 
+Dialogue: 0,00:02:26.045,00:02:27.580,Default,,0,0,0,,♪ You get a thumbs up, pat on the back ♪ 
+Dialogue: 0,00:02:27.580,00:02:29.382,Default,,0,0,0,,♪ And a "way to go" from your label everyday, lookin' boy ♪ 
+Dialogue: 0,00:02:29.382,00:02:30.717,Default,,0,0,0,,♪ Hey, lookin' boy! What you say, lookin' boy? ♪ 
+Dialogue: 0,00:02:30.717,00:02:32.385,Default,,0,0,0,,♪ I got a "hell yeah" from Dre, lookin' boy ♪ 
+Dialogue: 0,00:02:32.385,00:02:33.753,Default,,0,0,0,,♪ I'ma work for everything I have ♪ 
+Dialogue: 0,00:02:33.753,00:02:34.954,Default,,0,0,0,,♪ Never asked nobody for shit ♪ 
+Dialogue: 0,00:02:34.954,00:02:36.289,Default,,0,0,0,,♪ Get outta my face, lookin' boy ♪ 
+Dialogue: 0,00:02:36.289,00:02:37.624,Default,,0,0,0,,♪ Basically, boy, you're never gonna be capable ♪ 
+Dialogue: 0,00:02:37.624,00:02:39.125,Default,,0,0,0,,♪ Or keepin' up with the same pace, lookin' boy ♪ 
+Dialogue: 0,00:02:39.125,00:02:42.228,Default,,0,0,0,,♪ 'Cause I'm beginnin' to feel like a Rap God, Rap God ♪ 
+Dialogue: 0,00:02:42.228,00:02:45.365,Default,,0,0,0,,♪ All my people from the front to the back nod, back nod ♪ 
+Dialogue: 0,00:02:45.365,00:02:46.733,Default,,0,0,0,,♪ The way I'm racin' around the track ♪ 
+Dialogue: 0,00:02:46.733,00:02:48.568,Default,,0,0,0,,♪ Call me NASCAR, NASCAR ♪ 
+Dialogue: 0,00:02:48.568,00:02:51.204,Default,,0,0,0,,♪ Dale Earnhardt of the trailer park, the White Trash God ♪ 
+Dialogue: 0,00:02:51.204,00:02:52.505,Default,,0,0,0,,♪ Kneel before General Zod ♪ 
+Dialogue: 0,00:02:52.505,00:02:53.406,Default,,0,0,0,,♪ This planet's Krypton ♪ 
+Dialogue: 0,00:02:53.406,00:02:55.175,Default,,0,0,0,,♪ No, Asgard, Asgard ♪ 
+Dialogue: 0,00:02:55.175,00:02:57.076,Default,,0,0,0,,♪ So you be Thor and I'll be Odin ♪ 
+Dialogue: 0,00:02:57.076,00:02:58.845,Default,,0,0,0,,♪ You rodent, I'm omnipotent ♪ 
+Dialogue: 0,00:02:58.845,00:03:00.313,Default,,0,0,0,,♪ Let off then I'm reloadin' ♪ 
+Dialogue: 0,00:03:00.313,00:03:01.748,Default,,0,0,0,,♪ Immediately with these bombs I'm totin' ♪ 
+Dialogue: 0,00:03:01.748,00:03:03.516,Default,,0,0,0,,♪ And I should not be woken ♪ 
+Dialogue: 0,00:03:03.516,00:03:05.451,Default,,0,0,0,,♪ I'm the walking' dead, but I'm just a talkin' head ♪ 
+Dialogue: 0,00:03:05.451,00:03:06.753,Default,,0,0,0,,♪ A zombie floatin' ♪ 
+Dialogue: 0,00:03:06.753,00:03:08.454,Default,,0,0,0,,♪ But I got your mom deep-throatin' ♪ 
+Dialogue: 0,00:03:08.454,00:03:09.889,Default,,0,0,0,,♪ I'm out my Ramen noodle ♪ 
+Dialogue: 0,00:03:09.889,00:03:11.024,Default,,0,0,0,,♪ We have nothin' in common, poodle ♪ 
+Dialogue: 0,00:03:11.024,00:03:12.492,Default,,0,0,0,,♪ Poodle, I'm a doberman ♪ 
+Dialogue: 0,00:03:12.492,00:03:14.761,Default,,0,0,0,,♪ Pinch yourself in the arm and pay homage, pupil ♪ 
+Dialogue: 0,00:03:14.761,00:03:17.363,Default,,0,0,0,,♪ It's me, my honesty's brutal ♪ 
+Dialogue: 0,00:03:17.363,00:03:18.665,Default,,0,0,0,,♪ But it's honestly futile ♪ 
+Dialogue: 0,00:03:18.665,00:03:20.433,Default,,0,0,0,,♪ If I don't utilize what I do though ♪ 
+Dialogue: 0,00:03:20.433,00:03:21.701,Default,,0,0,0,,♪ For good at least once in a while ♪ 
+Dialogue: 0,00:03:21.701,00:03:23.236,Default,,0,0,0,,♪ So I wanna make sure somewhere in this ♪ 
+Dialogue: 0,00:03:23.236,00:03:25.338,Default,,0,0,0,,♪ Chicken scratch I scribble and doodle enough rhymes to ♪ 
+Dialogue: 0,00:03:25.338,00:03:27.540,Default,,0,0,0,,♪ Maybe to try to help get some people through tough times ♪ 
+Dialogue: 0,00:03:27.540,00:03:29.676,Default,,0,0,0,,♪ But I gotta keep a few punchlines just in case ♪ 
+Dialogue: 0,00:03:29.676,00:03:31.244,Default,,0,0,0,,♪ 'Cause even you unsigned ♪ 
+Dialogue: 0,00:03:31.244,00:03:33.046,Default,,0,0,0,,♪ Rappers are hungry lookin' at me like it's lunchtime ♪ 
+Dialogue: 0,00:03:33.046,00:03:34.847,Default,,0,0,0,,♪ I know there was a time where once I ♪ 
+Dialogue: 0,00:03:34.847,00:03:36.416,Default,,0,0,0,,♪ Was king of the underground ♪ 
+Dialogue: 0,00:03:36.416,00:03:38.017,Default,,0,0,0,,♪ But I still rap like I'm on my Pharoahe Monch grind ♪ 
+Dialogue: 0,00:03:38.017,00:03:40.286,Default,,0,0,0,,♪ So I crunch rhymes, but sometimes when you combine ♪ 
+Dialogue: 0,00:03:40.286,00:03:41.921,Default,,0,0,0,,♪ Appeal with the skin color of mine ♪ 
+Dialogue: 0,00:03:41.921,00:03:43.923,Default,,0,0,0,,♪ You get too big and here they come tryin' to ♪ 
+Dialogue: 0,00:03:43.923,00:03:45.425,Default,,0,0,0,,♪ Censor you like that one line ♪ 
+Dialogue: 0,00:03:45.425,00:03:47.727,Default,,0,0,0,,♪ I said on "I'm Back" from the Mathers LP1 when I ♪ 
+Dialogue: 0,00:03:47.727,00:03:50.496,Default,,0,0,0,,♪ Tried to say I'll take seven kids from Columbine ♪ 
+Dialogue: 0,00:03:50.496,00:03:53.733,Default,,0,0,0,,♪ Put 'em all in a line, add an AK-47, a revolver and a 9 ♪ 
+Dialogue: 0,00:03:53.733,00:03:55.034,Default,,0,0,0,,♪ See if I get away with it ♪ 
+Dialogue: 0,00:03:55.034,00:03:56.669,Default,,0,0,0,,♪ Now that I ain't as big as I was, but I'm ♪ 
+Dialogue: 0,00:03:56.669,00:03:59.772,Default,,0,0,0,,♪ Morphin' into an immortal, comin' through the portal ♪ 
+Dialogue: 0,00:03:59.772,00:04:01.941,Default,,0,0,0,,♪ You're stuck in a time warp from 2004 though ♪ 
+Dialogue: 0,00:04:01.941,00:04:04.077,Default,,0,0,0,,♪ And I don't know what the fuck that you rhyme for ♪ 
+Dialogue: 0,00:04:04.077,00:04:06.613,Default,,0,0,0,,♪ You're pointless as Rapunzel with fuckin' cornrows ♪ 
+Dialogue: 0,00:04:06.613,00:04:08.581,Default,,0,0,0,,♪ You write normal? Fuck being normal ♪ 
+Dialogue: 0,00:04:08.581,00:04:10.183,Default,,0,0,0,,♪ And I just bought a new raygun from the future ♪ 
+Dialogue: 0,00:04:10.183,00:04:11.451,Default,,0,0,0,,♪ Just to come and shoot ya ♪ 
+Dialogue: 0,00:04:11.451,00:04:13.052,Default,,0,0,0,,♪ Like when Fabolous made Ray J mad ♪ 
+Dialogue: 0,00:04:13.052,00:04:14.887,Default,,0,0,0,,♪ 'Cause Fab said he looked like a fag at Mayweather's pad ♪ 
+Dialogue: 0,00:04:14.887,00:04:16.389,Default,,0,0,0,,♪ Singin' to a man while he played piano ♪ 
+Dialogue: 0,00:04:16.389,00:04:18.491,Default,,0,0,0,,♪ Man, oh man, that was a 24/7 special ♪ 
+Dialogue: 0,00:04:18.491,00:04:19.791,Default,,0,0,0,,♪ On the cable channel ♪ 
+Dialogue: 0,00:04:19.791,00:04:21.293,Default,,0,0,0,,♪ So Ray J went straight to the radio station ♪ 
+Dialogue: 0,00:04:21.293,00:04:22.262,Default,,0,0,0,,♪ The very next day ♪ 
+Dialogue: 0,00:04:22.262,00:04:23.563,Default,,0,0,0,,♪ "Hey, Fab, I'ma kill you!" ♪ 
+Dialogue: 0,00:04:23.563,00:04:25.164,Default,,0,0,0,,♪ Lyrics comin' at you at supersonic speed ♪ 
+Dialogue: 0,00:04:25.164,00:04:26.633,Default,,0,0,0,,♪ J.J. Fad ♪ 
+Dialogue: 0,00:04:26.633,00:04:28.101,Default,,0,0,0,,♪ Uh, summa-lumma, dooma-lumma, you assumin' I'm a human ♪ 
+Dialogue: 0,00:04:28.101,00:04:29.369,Default,,0,0,0,,♪ What I gotta do to get it through to you I'm superhuman ♪ 
+Dialogue: 0,00:04:29.369,00:04:30.670,Default,,0,0,0,,♪ Innovative and I'm made of rubber ♪ 
+Dialogue: 0,00:04:30.670,00:04:31.871,Default,,0,0,0,,♪ So that anything you say is ricochetin' ♪ 
+Dialogue: 0,00:04:31.871,00:04:33.373,Default,,0,0,0,,♪ Off of me and it'll glue to you and ♪ 
+Dialogue: 0,00:04:33.373,00:04:34.540,Default,,0,0,0,,♪ I'm devastating, more than ever demonstrating ♪ 
+Dialogue: 0,00:04:34.540,00:04:36.042,Default,,0,0,0,,♪ How to give a motherfuckin' audience ♪ 
+Dialogue: 0,00:04:36.042,00:04:37.510,Default,,0,0,0,,♪ A feeling like it's levitating, never fading ♪ 
+Dialogue: 0,00:04:37.510,00:04:38.745,Default,,0,0,0,,♪ And I know that the haters are forever waiting ♪ 
+Dialogue: 0,00:04:38.745,00:04:39.712,Default,,0,0,0,,♪ For the day that they can say I fell off ♪ 
+Dialogue: 0,00:04:39.712,00:04:40.980,Default,,0,0,0,,♪ They'll be celebrating ♪ 
+Dialogue: 0,00:04:40.980,00:04:42.515,Default,,0,0,0,,♪ 'Cause I know the way to get 'em motivated ♪ 
+Dialogue: 0,00:04:42.515,00:04:43.483,Default,,0,0,0,,♪ I make elevating music, you make elevator music ♪ 
+Dialogue: 0,00:04:43.483,00:04:45.051,Default,,0,0,0,,♪ "Oh, he's too mainstream." ♪ 
+Dialogue: 0,00:04:45.051,00:04:45.885,Default,,0,0,0,,♪ Well, that's what they do when they get jealous ♪ 
+Dialogue: 0,00:04:45.885,00:04:46.853,Default,,0,0,0,,♪ They confuse it ♪ 
+Dialogue: 0,00:04:46.853,00:04:48.121,Default,,0,0,0,,♪ "It's not hip hop, it's pop" ♪ 
+Dialogue: 0,00:04:48.121,00:04:49.389,Default,,0,0,0,,♪ 'Cause I found a hella way to fuse it ♪ 
+Dialogue: 0,00:04:49.389,00:04:50.690,Default,,0,0,0,,♪ With rock, shock rap with Doc ♪ 
+Dialogue: 0,00:04:50.690,00:04:52.292,Default,,0,0,0,,♪ Throw on Lose Yourself and make 'em lose it ♪ 
+Dialogue: 0,00:04:52.292,00:04:53.693,Default,,0,0,0,,♪ "I don't know how to make songs like that" ♪ 
+Dialogue: 0,00:04:53.693,00:04:55.295,Default,,0,0,0,,♪ "I don't know what words to use" ♪ 
+Dialogue: 0,00:04:55.295,00:04:56.529,Default,,0,0,0,,♪ Let me know when it occurs to you ♪ 
+Dialogue: 0,00:04:56.529,00:04:57.563,Default,,0,0,0,,♪ While I'm rippin' any one of these verses ♪ 
+Dialogue: 0,00:04:57.563,00:04:58.998,Default,,0,0,0,,♪ That verses you ♪ 
+Dialogue: 0,00:04:58.998,00:05:00.233,Default,,0,0,0,,♪ It's curtains, I'm inadvertently hurtin' you ♪ 
+Dialogue: 0,00:05:00.233,00:05:01.501,Default,,0,0,0,,♪ How many verses I gotta murder to ♪ 
+Dialogue: 0,00:05:01.501,00:05:03.002,Default,,0,0,0,,♪ Prove that if you were half as nice ♪ 
+Dialogue: 0,00:05:03.002,00:05:04.704,Default,,0,0,0,,♪ Your songs you could sacrifice virgins too?! ♪ 
+Dialogue: 0,00:05:04.704,00:05:07.106,Default,,0,0,0,,♪ Ugh, school flunkie, pill junkie ♪ 
+Dialogue: 0,00:05:07.106,00:05:09.575,Default,,0,0,0,,♪ But look at the accolades these skills brung me ♪ 
+Dialogue: 0,00:05:09.575,00:05:11.644,Default,,0,0,0,,♪ Full of myself, but still hungry ♪ 
+Dialogue: 0,00:05:11.644,00:05:14.213,Default,,0,0,0,,♪ I bully myself 'cause I make me do what I put my mind to ♪ 
+Dialogue: 0,00:05:14.213,00:05:16.749,Default,,0,0,0,,♪ And I'm a million leagues above you ♪ 
+Dialogue: 0,00:05:16.749,00:05:18.151,Default,,0,0,0,,♪ Ill when I speak in tongues ♪ 
+Dialogue: 0,00:05:18.151,00:05:19.786,Default,,0,0,0,,♪ But it's still tongue-in-cheek, fuck you ♪ 
+Dialogue: 0,00:05:19.786,00:05:21.988,Default,,0,0,0,,♪ I'm drunk, so Satan, take the fucking wheel ♪ 
+Dialogue: 0,00:05:21.988,00:05:23.456,Default,,0,0,0,,♪ I'ma sleep in the front seat ♪ 
+Dialogue: 0,00:05:23.456,00:05:26.326,Default,,0,0,0,,♪ Bumpin' Heavy D and the Boyz, still "Chunky, but funky" ♪ 
+Dialogue: 0,00:05:26.326,00:05:27.593,Default,,0,0,0,,♪ But in my head there's something ♪ 
+Dialogue: 0,00:05:27.593,00:05:29.595,Default,,0,0,0,,♪ I can feel tugging and struggling ♪ 
+Dialogue: 0,00:05:29.595,00:05:31.130,Default,,0,0,0,,♪ Angels fight with devils and ♪ 
+Dialogue: 0,00:05:31.130,00:05:33.299,Default,,0,0,0,,♪ Here's what they want from me ♪ 
+Dialogue: 0,00:05:33.299,00:05:35.068,Default,,0,0,0,,♪ They're askin' me to eliminate some of the women hate ♪ 
+Dialogue: 0,00:05:35.068,00:05:36.402,Default,,0,0,0,,♪ But if you take into consideration ♪ 
+Dialogue: 0,00:05:36.402,00:05:37.704,Default,,0,0,0,,♪ The bitter hatred I have ♪ 
+Dialogue: 0,00:05:37.704,00:05:38.971,Default,,0,0,0,,♪ Then you may be a little patient ♪ 
+Dialogue: 0,00:05:38.971,00:05:40.239,Default,,0,0,0,,♪ And more sympathetic to the situation ♪ 
+Dialogue: 0,00:05:40.239,00:05:42.075,Default,,0,0,0,,♪ And understand the discrimination ♪ 
+Dialogue: 0,00:05:42.075,00:05:43.943,Default,,0,0,0,,♪ But fuck it, life's handin' you lemons? ♪ 
+Dialogue: 0,00:05:43.943,00:05:45.244,Default,,0,0,0,,♪ Make lemonade then! ♪ 
+Dialogue: 0,00:05:45.244,00:05:46.846,Default,,0,0,0,,♪ But if I can't batter the women ♪ 
+Dialogue: 0,00:05:46.846,00:05:48.548,Default,,0,0,0,,♪ How the fuck am I supposed to bake them a cake then?! ♪ 
+Dialogue: 0,00:05:48.548,00:05:50.083,Default,,0,0,0,,♪ Don't mistake him for Satan ♪ 
+Dialogue: 0,00:05:50.083,00:05:51.784,Default,,0,0,0,,♪ It's a fatal mistake if you think I need to be overseas ♪ 
+Dialogue: 0,00:05:51.784,00:05:53.753,Default,,0,0,0,,♪ And take a vacation to trip a broad ♪ 
+Dialogue: 0,00:05:53.753,00:05:55.221,Default,,0,0,0,,♪ And make her fall on her face and ♪ 
+Dialogue: 0,00:05:55.221,00:05:56.322,Default,,0,0,0,,♪ Don't be a retard ♪ 
+Dialogue: 0,00:05:56.322,00:05:57.957,Default,,0,0,0,,♪ Be a king? Think not ♪ 
+Dialogue: 0,00:05:57.957,00:06:01.160,Default,,0,0,0,,♪ Why be a king when you can be a God? ♪ 
