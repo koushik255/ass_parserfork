@@ -1606,7 +1606,7 @@ impl AssFile {
     /// # Example
     /// ```rust
     /// # use ass_parser::AssFile;
-    /// let mut ass_file = ass_parser::AssFile::from_file("src/subtitles.ass".to_string()).expect("error while reading file.");
+    /// let mut ass_file = ass_parser::AssFile::from_file("src/subtitles.ass").expect("error while reading file.");
     /// ```
     pub fn from_file(filename: &str) -> std::result::Result<AssFile, std::io::Error> {
         let file_contents = get_contents(&filename);
