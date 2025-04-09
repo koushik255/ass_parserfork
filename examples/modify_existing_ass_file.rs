@@ -2,7 +2,7 @@ use ass_parser::{AssFile, Dialogue, AssFileOptions};
 use hex_color::HexColor;
 
 fn main() -> Result<(), std::io::Error>{
-    let mut ass_file = AssFile::from_file("subtitles.ass")?;
+    let mut ass_file = AssFile::from_file("./examples/subtitles.ass")?;
     let dialogue = Dialogue::default()
         .set_text("Hello Friend!");
     let primary_color = AssFileOptions::get_ass_color(HexColor::RED);
