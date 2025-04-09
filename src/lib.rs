@@ -1614,8 +1614,10 @@ impl AssFile {
         match file_contents {
             Ok(mut contents) => {
                 while !contents.starts_with("[") {
+                    if contents.is_empty() {
+                        return Err(std::io::Error::new(std::io::ErrorKind::InvalidData, "The given file is empty or malformed"));
+                    }
                     contents.remove(0);
-                    
                 }
                 let components = parser.get_each_components(contents);
                 Ok(
