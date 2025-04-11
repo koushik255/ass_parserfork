@@ -19,7 +19,7 @@
 /// Creating a simple `Advanced SubStation Alpha` `(.ass)` file with default values!
 ///
 /// ```rust
-/// use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
+/// use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
 /// use hex_color::HexColor;
 /// 
 /// fn main() {
@@ -43,7 +43,7 @@
 /// ```
 /// Here we create an .ass file with default values and When you open the .ass file you can see the
 /// following content.
-/// ```
+/// ```ass
 /// ScriptType: v4.00+
 /// PlayResX: 384
 /// PlayResY: 288
@@ -64,7 +64,7 @@
 /// # Add Dialogues
 ///
 /// ```rust
-/// use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions, Dialogue};
+/// use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions, Dialogue};
 /// use ass_parser::IndexNotFound;
 /// use hex_color::HexColor;
 /// 
@@ -118,16 +118,20 @@
 /// function takes HexColor. Make sure that you are using rand + std features to generate random colors via rand out of the box.
 ///
 /// ```rust
+/// use hex_color::HexColor;
+/// use ass_parser::Dialogue;
+/// use ass_parser::Events;
 ///
-///let random_color:HexColor = rand::random();
+/// let random_color:HexColor = rand::random();
 ///
-///let dialogue = Dialogue::default()
-///    .set_start(&start)
-///    .set_end(&end)
-///    .set_text(&text)
-///    .set_colour(random_color);
+/// let dialogue = Dialogue::default()
+///        .set_text("Hello Friend!")
+///        .set_start("0:00:00.50")
+///        .set_end("0:00:00.58")
+///        .set_colour(random_color);
 ///
-///event.add_dialogue(dialogue);
+/// let events = Events::new()
+///   .add_first_dialogue(dialogue).expect("Unable to add Dialogue");
 /// ```
 ///
 /// # Modify Existing ASS files.
@@ -139,7 +143,7 @@
 /// use hex_color::HexColor;
 /// 
 /// fn main() -> Result<(), std::io::Error>{
-///     let mut ass_file = AssFile::from_file("subtitles.ass")?;
+///     let mut ass_file = AssFile::from_file("./examples/subtitles.ass")?;
 ///     let dialogue = Dialogue::default()
 ///         .set_text("Hello Friend!");
 ///     let primary_color = AssFileOptions::get_ass_color(HexColor::RED);
@@ -163,7 +167,7 @@
 /// ```rust
 /// use ass_parser::{AssFile, Dialogue};
 /// 
-/// let ass_file = AssFile::from_file("examples/subtitles.ass")?;
+/// let ass_file = AssFile::from_file("examples/subtitles.ass").expect("Unable to find file");
 /// let dialogues: Vec<Dialogue> = ass_file.events.get_dialogues();
 /// 
 /// for dialogue in dialogues {
@@ -199,7 +203,7 @@
 /// 
 /// fn main() {
 ///     let hexcolor = AssFileOptions::get_ass_color(HexColor::YELLOW);
-///     let srt_file = AssFile::from_srt("RapGod.srt");
+///     let srt_file = AssFile::from_srt("./examples/RapGod.srt");
 ///     let mut ass_file = AssFile::new();
 ///     let mut event = Events::default();
 /// 
@@ -238,7 +242,7 @@
 ///
 /// ## This will generate an ASS file which would be similiar to this
 ///
-/// ```
+/// ```ass
 ///ScriptType: FFMPEG
 ///PlayResX: 384
 ///PlayResY: 288
@@ -261,6 +265,9 @@
 ///
 ///
 ///```rust
+///use ass_parser::Dialogue;
+///use ass_parser::Events;
+///
 ///let first_dialogue = Dialogue::default()
 ///   .set_start("0:00:00.10")
 ///   .set_end("0:00:00.50");
@@ -274,7 +281,7 @@
 ///   .set_end("0:00:01.01");
 ///
 ///let events = Events::new()
-///   .add_first_dialogue(first_dialogue)?
+///   .add_first_dialogue(first_dialogue).expect("Unable to add dialogue")
 ///   .add_dialogue(second_dialogue)
 ///   .add_dialogue(third_dialogue)
 ///   .create();
@@ -405,9 +412,9 @@ impl ScriptInfo {
     /// you are using a version of SSA older than the version that created the script.
     /// ASS version is “V4.00+”.
     pub fn set_scripttype(&mut self, value: &str) -> &mut Self {
-		self.scripttype = Some(value.to_string());
-		self
-	}
+        self.scripttype = Some(value.to_string());
+        self
+	  }
     /// After creating the `AssFile` set the playresx of the .ass file.
     ///
     /// This is the height of the screen used by the script's author(s) when playing the script. SSA v4 will automatically select the nearest enabled setting, if you are using Directdraw playback.
@@ -600,7 +607,7 @@ impl V4Format {
 	}
     /// set the primarycolour for the V4 field.
     /// ```rust
-    /// use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
+    /// use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
     /// use hex_color::HexColor;
     /// 
     /// fn main() {
@@ -627,7 +634,7 @@ impl V4Format {
 	}
     /// set the secondarycolour for the V4 field.
     /// ```rust
-    /// use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
+    /// use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
     /// use hex_color::HexColor;
     /// 
     /// fn main() {
@@ -654,7 +661,7 @@ impl V4Format {
 	}
     /// set the outlinecolour for the V4 field.
     /// ```rust
-    /// use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
+    /// use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
     /// use hex_color::HexColor;
     /// 
     /// fn main() {
@@ -681,7 +688,7 @@ impl V4Format {
 	}
     /// set the backcolour for the V4 field.
     /// ```rust
-    /// use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
+    /// use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
     /// use hex_color::HexColor;
     /// 
     /// fn main() {
@@ -838,7 +845,11 @@ impl Events {
     /// Returns a Clone of `Dialogues`
     /// You can then use this to access fields of `Dialogue`.
     /// ```rust 
-    /// let dialogues = ass_file.events.get_dialogues().dialogues.clone();
+    /// 
+    /// use ass_parser::AssFile;
+    ///
+    /// let mut ass_file = ass_parser::AssFile::from_file("./examples/subtitles.ass").expect("error while reading file.");
+    /// let dialogues = ass_file.events.get_dialogues().clone();
 
     /// for dialogue in dialogues {
     ///     println!("layer: {:?}", &dialogue.get_layer());
@@ -881,6 +892,9 @@ impl Events {
    ///
    /// # Example
    /// ```rust
+   ///  use ass_parser::Dialogue;
+   ///  use ass_parser::Events;
+   ///
    ///  let dialogue = Dialogue::default();
    ///  let events = Events::new()
    ///     .add_first_dialogue(dialogue.clone().set_text("Hello There!")).unwrap()
@@ -897,6 +911,9 @@ impl Events {
     /// Add a dialogue to the first of the `Events` Struct.
     /// # Example
     /// ```rust
+    /// use ass_parser::Dialogue;
+    /// use ass_parser::Events;
+    ///
    ///  let dialogue = Dialogue::default();
    ///  let events = Events::new()
    ///     .add_first_dialogue(dialogue.set_text("Hello There!")).unwrap();
@@ -917,6 +934,9 @@ impl Events {
     /// Add a dialogue to the last of the `Events` Struct.
     /// # Example
     /// ```rust
+    /// use ass_parser::Dialogue;
+    /// use ass_parser::Events;
+    ///
    ///  let dialogue = Dialogue::default();
    ///  let events = Events::new()
    ///     .add_last_dialogue(dialogue.set_text("Hello There!")).unwrap();
@@ -936,9 +956,12 @@ impl Events {
     /// Add a dialogue to the nth position of the `Events` Struct.
     /// # Example
     /// ```rust
+    /// use ass_parser::Dialogue;
+    /// use ass_parser::Events;
+    ///
    ///  let dialogue = Dialogue::default();
    ///  let events = Events::new()
-   ///     .add_n_dialogue(dialogue.set_text("Hello There!")).unwrap();
+   ///     .add_n_dialogue(0, dialogue.set_text("Hello There!")).unwrap();
    /// ```
     pub fn add_n_dialogue(&mut self, n: usize, dialogue: Dialogue) -> Result<&mut Self> {
         match self.dialogues.dialogues.get_mut(n) {
@@ -955,9 +978,12 @@ impl Events {
     /// Add a dialogue to the end of the `Events` Struct.
     /// # Example
     /// ```rust
+    /// use ass_parser::Dialogue;
+    /// use ass_parser::Events;
+    ///
    ///  let dialogue = Dialogue::default();
-   ///  let events = Events::new()
-   ///     .add_n_dialogue(dialogue.set_text("Hello There!")).unwrap();
+   ///  let mut events = Events::new();
+   ///  events.add_dialogue(dialogue.set_text("Hello There!"));
    /// ```
     pub fn add_dialogue(&mut self, dialogue: Dialogue) -> &mut Events {
         self.dialogues.dialogues.push(dialogue);
@@ -1292,17 +1318,19 @@ impl AssFile {
     /// Load Subtitles from a SubRip file.
     ///
     /// # Example
-    /// ``` rust
-    /// let srt_file = AssFile::from_srt("sample.srt");
+    /// ```rust
+    /// use ass_parser::AssFile;
+    ///
+    /// let srt_file = AssFile::from_srt("./examples/RapGod.srt");
     ///
     /// for srt_seg in srt_file.iter() {
     ///    let start = &srt_seg.start;
     ///    let end = &srt_seg.end;
     ///    let text = &srt_seg.text;
     ///
-    ///    println!("Start: {}\nEnd: {}\ntext: {}", start, end, text);
-    /// 
-    ///} ```
+    ///    println!("Start: {}\nEnd: {}\nText: {}", start, end, text);
+    ///}
+    ///```
     pub fn from_srt(filename: &str) -> Srt {
         let file_contents = get_contents(filename).unwrap();
         let srtdata = parser::SrtData::new();
@@ -1632,8 +1660,8 @@ impl AssFile {
     ///
     /// # Example
     /// ```rust
-    /// # use ass_parser::AssFile;
-    /// let mut ass_file = ass_parser::AssFile::from_file("src/subtitles.ass").expect("error while reading file.");
+    /// use ass_parser::AssFile;
+    /// let mut ass_file = ass_parser::AssFile::from_file("./examples/subtitles.ass").expect("error while reading file.");
     /// ```
     pub fn from_file(filename: &str) -> std::result::Result<AssFile, std::io::Error> {
         let file_contents = get_contents(&filename);
@@ -1666,22 +1694,22 @@ impl AssFile {
     /// # Example 
     /// ```rust
     /// use hex_color::HexColor;
-    /// use ass_parser;
     /// use ass_parser::{AssFile, V4Format, AssFileOptions};
 
     ///
     /// fn main() -> Result<(), std::io::Error>{
-    ///    let mut ass_file = ass_parser::AssFile::from_file("subtitles.ass".to_string())?;
+    ///    let mut ass_file = ass_parser::AssFile::from_file("./examples/subtitles.ass")?;
     ///    ass_file.components.script 
-    ///        .set_scripttype("v4.00+".to_string())
-    ///        .set_playresx("384".to_string())
-    ///        .set_playresy("288".to_string())
-    ///        .set_scaledborderandshadow("yes".to_string())
-    ///        .set_ycbcr_matrix("None".to_string());
+    ///        .set_scripttype("v4.00+")
+    ///        .set_playresx("384")
+    ///        .set_playresy("288")
+    ///        .set_scaledborderandshadow("yes")
+    ///        .set_ycbcr_matrix("None");
     ///
     ///    ass_file.components.v4.set_v4(V4Format::default());
     ///
     ///    AssFile::save_file(&ass_file, "modified_subtitles.ass");
+    ///    Ok(())
     /// }
     /// ```
     pub fn save_file(file_components: &AssFile, filename: &str) {
