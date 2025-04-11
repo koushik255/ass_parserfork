@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 - [Compatible with older versions of .ass files](#6)
 
 ### Changed
-- **[33e249]**(https://github.com/Aavtic/ass_parser/commit/33e249edf588dfc32d3f1116b3be31f0b1c4136c) Since some of the components in .ass files are not found in some old files. It is better to assume that each component may or may not be present in the file.
+- [33e249](https://github.com/Aavtic/ass_parser/commit/33e249edf588dfc32d3f1116b3be31f0b1c4136c) Since some of the components in .ass files are not found in some old files. It is better to assume that each component may or may not be present in the file.
 Thus treating each component as an option.
 
 
