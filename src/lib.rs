@@ -1473,13 +1473,40 @@ impl Parser {
                  script_scaledborderandshadow,
                  script_ycbcr_matrix);
 
-        let mut scriptinfo = ScriptInfo::new();
-        let script_info = scriptinfo.
-            set_scripttype(&script_type.unwrap()).
-            set_playresx(&script_playerresx.unwrap()).
-            set_playresy(&script_playerresy.unwrap()).
-            set_scaledborderandshadow(&script_scaledborderandshadow.unwrap()).
-            set_ycbcr_matrix(&script_ycbcr_matrix.unwrap()).clone();
+
+        let script_info: ScriptInfo = {
+            let mut scriptinfo: &mut ScriptInfo = &mut ScriptInfo::new();
+            if script_type.is_some() {
+                scriptinfo = scriptinfo.set_scripttype(&script_type.unwrap());
+            }
+
+            if script_playerresx.is_some() {
+                scriptinfo = scriptinfo.set_playresx(&script_playerresx.unwrap());
+            } 
+
+            if script_playerresy.is_some() {
+                scriptinfo = scriptinfo.set_playresy(&script_playerresy.unwrap());
+            }
+
+            if script_scaledborderandshadow.is_some() {
+                scriptinfo = scriptinfo.set_scaledborderandshadow(&script_scaledborderandshadow.unwrap())
+            }
+            
+            if script_ycbcr_matrix.is_some() {
+                scriptinfo = scriptinfo.set_ycbcr_matrix(&script_ycbcr_matrix.unwrap())
+            }
+
+            scriptinfo.clone()
+        };
+
+
+        // Error prone unwraps
+        //let script_info = scriptinfo.
+        //    set_scripttype(&script_type.unwrap()).
+        //    set_playresx(&script_playerresx.unwrap()).
+        //    set_playresy(&script_playerresy.unwrap()).
+        //    set_scaledborderandshadow(&script_scaledborderandshadow.unwrap()).
+        //    set_ycbcr_matrix(&script_ycbcr_matrix.unwrap()).clone();
 
         Some(script_info)
 }
