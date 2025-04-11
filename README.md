@@ -25,12 +25,12 @@ Badge]][Deps.rs]<br> ![Crates.io Total Downloads](https://img.shields.io/crates/
  
  AssParser is based on the principle of easy to read write and modify `.ass` files. You can create, modify and edit ASS files however you want using this tool.
 
- # Example
+# Example
  
 Creating a simple `Advanced SubStation Alpha` `(.ass)` file with default values!
 
 ```rust
-use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
+use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions};
 use hex_color::HexColor;
 
 fn main() {
@@ -54,7 +54,7 @@ fn main() {
 ```
 Here we create an .ass file with default values and When you open the .ass file you can see the
 following content.
-```
+```ass
 ScriptType: v4.00+
 PlayResX: 384
 PlayResY: 288
@@ -69,12 +69,13 @@ Style: Default,Arial,16,&H00ff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Default,,0,0,0,,Hello Friend
 ```
 
 # Add Dialogues
 
 ```rust
-use ass_parser::{self, AssFile, ScriptInfo, V4Format, Events, AssFileOptions, Dialogue};
+use ass_parser::{AssFile, ScriptInfo, V4Format, Events, AssFileOptions, Dialogue};
 use ass_parser::IndexNotFound;
 use hex_color::HexColor;
 
@@ -89,8 +90,8 @@ fn main() -> Result<(), IndexNotFound>{
 
     let second_dialogue = Dialogue::default()
         .set_text("Hello Friend!")
-        .set_start("0:00:00.50")
-        .set_end("0:00:00.58");
+        .set_start("00:00.50")
+        .set_end("00:00.58");
 
     let third_dialogue = Dialogue::default()
         .set_text("Hello World!!")
@@ -122,70 +123,27 @@ fn main() -> Result<(), IndexNotFound>{
 }
 ```
 
+# Add Colors to Subtitles.
 
-## This will generate an ASS file which would be similar to this
-
-```
-ScriptType: FFMPEG
-PlayResX: 384
-PlayResY: 288
-ScaledBorderAndShadow: yes
-YCbCr Matrix: None
-
-
-[V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Arial,16,&H0ffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,10,10,1
-
-
-[Events]
-Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.10,0:00:00.50,Default,,0,0,0,,Hello There!
-Dialogue: 0,00:00.50,00:00.58,Default,,0,0,0,,Hello Friend!
-Dialogue: 0,0:00:00.58,0:00:01.01,Default,,0,0,0,,Hello World!!
-```
-# Events can also be created like this
-
+You can add individual colors to each subtitles using the `.set_colour()` function. This
+function takes HexColor. Make sure that you are using rand + std features to generate random colors via rand out of the box.
 
 ```rust
- let first_dialogue = Dialogue::default()
-   .set_start("0:00:00.10")
-   .set_end("0:00:00.50");
- 
- let second_dialogue = Dialogue::default()
-   .set_start("00:00.50")
-   .set_end("00:00.58");
- 
- let third_dialogue = Dialogue::default()
-   .set_start("0:00:00.58")
-   .set_end("0:00:01.01");
- 
- let events = Events::new()
-   .add_first_dialogue(first_dialogue)?
-   .add_dialogue(second_dialogue)
-   .add_dialogue(third_dialogue)
-   .create();
-```
-
-
- # Add Colors to Subtitles.
-
- You can add individual colors to each subtitles using the `.set_colour()` function. This
- function takes HexColor. Make sure that you are using rand + std features to generate random colors via rand out of the box.
-
- ```rust
+use hex_color::HexColor;
+use ass_parser::Dialogue;
+use ass_parser::Events;
 
 let random_color:HexColor = rand::random();
 
 let dialogue = Dialogue::default()
-    .set_start(&start)
-    .set_end(&end)
-    .set_text(&text)
-    .set_colour(random_color);
+       .set_text("Hello Friend!")
+       .set_start("0:00:00.50")
+       .set_end("0:00:00.58")
+       .set_colour(random_color);
 
-event.add_dialogue(dialogue);
- ```
-
+let events = Events::new()
+  .add_first_dialogue(dialogue).expect("Unable to add Dialogue");
+```
 
 # Modify Existing ASS files.
 
@@ -196,7 +154,7 @@ use ass_parser::{AssFile, Dialogue, AssFileOptions};
 use hex_color::HexColor;
 
 fn main() -> Result<(), std::io::Error>{
-    let mut ass_file = AssFile::from_file("subtitles.ass")?;
+    let mut ass_file = AssFile::from_file("./examples/subtitles.ass")?;
     let dialogue = Dialogue::default()
         .set_text("Hello Friend!");
     let primary_color = AssFileOptions::get_ass_color(HexColor::RED);
@@ -213,7 +171,6 @@ fn main() -> Result<(), std::io::Error>{
     Ok(())
 }
 ```
-
 # Read Contents of ASS Files
 
 To retrieve the values of fields present in each dialogue. You can load a `.ass` file and then access each dialogue details. 
@@ -221,7 +178,7 @@ To retrieve the values of fields present in each dialogue. You can load a `.ass`
 ```rust
 use ass_parser::{AssFile, Dialogue};
 
-let ass_file = AssFile::from_file("examples/subtitles.ass")?;
+let ass_file = AssFile::from_file("examples/subtitles.ass").expect("Unable to find file");
 let dialogues: Vec<Dialogue> = ass_file.events.get_dialogues();
 
 for dialogue in dialogues {
@@ -240,73 +197,122 @@ for dialogue in dialogues {
 ```
 
 
- # Added Support for SubRip files.
+# Added Support for SubRip files.
 
- Now you can load `.srt` files and convert them to `.ass` files and even modify them on the
- process too. Here is an example from the `examples` directory.
+Now you can load `.srt` files and convert them to `.ass` files and even modify them on the
+process too. Here is an example from the `examples` directory.
 
- In this example we load an SubRip file (`RapGod.srt`) and extract each subtitle from it and
- modify them by adding random colors to each subtitle. Then finally converting it to a `.ass`
- file and saving it.
+In this example we load an SubRip file (`RapGod.srt`) and extract each subtitle from it and
+modify them by adding random colors to each subtitle. Then finally converting it to a `.ass`
+file and saving it.
 
- ```rust
- use hex_color::HexColor;
- use ass_parser::{AssFile, AssFileOptions};
- use ass_parser::{ScriptInfo, V4Format, Events, Dialogue};
- use rand;
- 
- fn main() {
-     let hexcolor = AssFileOptions::get_ass_color(HexColor::YELLOW);
-     let srt_file = AssFile::from_srt("RapGod.srt");
-     let mut ass_file = AssFile::new();
-     let mut event = Events::default();
- 
-     for srt_seg in srt_file.iter() {
-         let start = &srt_seg.start;
-         let end = &srt_seg.end;
-         let text = &srt_seg.text;
- 
-         let random_color:HexColor = rand::random();
- 
-         let dialogue = Dialogue::default()
-             .set_start(&start)
-             .set_end(&end)
-             .set_text(&text)
-             .set_colour(random_color);
- 
-         event.add_dialogue(dialogue);
-     }
-     
- 
-     ass_file.components.script
-         .set_script(ScriptInfo::default());
- 
- 
- 
-     ass_file.components.v4
-         .set_v4(V4Format::default())
-         .set_primarycolour(&hexcolor);
-     ass_file.components.events
-         .set_events(event);
- 
-     AssFile::save_file(&ass_file, "new_subtitle.ass");
- }
+```rust
+use hex_color::HexColor;
+use ass_parser::{AssFile, AssFileOptions};
+use ass_parser::{ScriptInfo, V4Format, Events, Dialogue};
+use rand;
+
+fn main() {
+    let hexcolor = AssFileOptions::get_ass_color(HexColor::YELLOW);
+    let srt_file = AssFile::from_srt("examples/RapGod.srt");
+    let mut ass_file = AssFile::new();
+    let mut event = Events::default();
+
+    for srt_seg in srt_file.iter() {
+        let start = &srt_seg.start;
+        let end = &srt_seg.end;
+        let text = &srt_seg.text;
+
+        let random_color:HexColor = rand::random();
+
+        let dialogue = Dialogue::default()
+            .set_start(&start)
+            .set_end(&end)
+            .set_text(&text)
+            .set_colour(random_color);
+
+        event.add_dialogue(dialogue);
+    }
+    
+
+    ass_file.components.script
+        .set_script(ScriptInfo::default());
+
+
+
+    ass_file.components.v4
+        .set_v4(V4Format::default())
+        .set_primarycolour(&hexcolor);
+    ass_file.components.events
+        .set_events(event);
+
+    AssFile::save_file(&ass_file, "new_subtitle.ass");
+}
+```
+
+
+## This will generate an ASS file which would be similiar to this
+
+```ass
+ScriptType: FFMPEG
+PlayResX: 384
+PlayResY: 288
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,16,&H0ffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,10,10,1
+
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.50,Default,,0,0,0,,Hello There!
+Dialogue: 0,00:00.50,00:00.58,Default,,0,0,0,,Hello Friend!
+Dialogue: 0,0:00:00.58,0:00:01.01,Default,,0,0,0,,Hello World!!
+ ```
+ # Events can also be created like this
+
+
+```rust
+use ass_parser::Dialogue;
+use ass_parser::Events;
+
+let first_dialogue = Dialogue::default()
+   .set_start("0:00:00.10")
+   .set_end("0:00:00.50");
+
+let second_dialogue = Dialogue::default()
+   .set_start("00:00.50")
+   .set_end("00:00.58");
+
+let third_dialogue = Dialogue::default()
+   .set_start("0:00:00.58")
+   .set_end("0:00:01.01");
+
+let events = Events::new()
+   .add_first_dialogue(first_dialogue).expect("Unable to add dialogue")
+   .add_dialogue(second_dialogue)
+   .add_dialogue(third_dialogue)
+   .create();
  ```
 
+ You can burn this subtitle file to a video or use any video player to select a video file along
+ with this subtitle file.
 
+ # Using [FFmpeg] to burn the video with the subtitles file.
 
-You can burn this subtitle file to a video or use any video player to select a video file along
-with this subtitle file.
+ You will first have to download and install [FFmpeg] on your system to try this. Once you have
+ downloaded you can use the following command to burn the video file `video.avi` and the
+ generated subtitle file `new_subtitles.ass` to a single output video file `output.avi`
 
-# Using [FFmpeg] to burn the video with the subtitles file.
-
-You will first have to download and install [FFmpeg] on your system to try this. Once you have
-downloaded you can use the following command to burn the video file `video.avi` and the
-generated subtitle file `new_subtitles.ass` to a single output video file `output.avi`
-
-```shell
-ffmpeg -i video.avi -vf "ass=new_subtitles.ass" output.avi
-```
+ ```shell
+ ffmpeg -i video.avi -vf "ass=new_subtitles.ass" output.avi
+ ```
+ 
+[FFmpeg]: https://www.ffmpeg.org/about.html
+[ass_parser]: https://github.com/Aavtic/ass_parser
  
 [FFmpeg]: https://www.ffmpeg.org/about.html
 [ass_parser]: https://github.com/Aavtic/ass_parser
