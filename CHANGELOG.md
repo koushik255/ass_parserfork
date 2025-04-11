@@ -20,9 +20,11 @@ Thus treating each component as an option.
 
 ## New Contributors
 - [@meipeter](https://github.com/meipeter) Made his first contribution in #4
+- [@Wat86](https://github.com/Wat86) Made his first contribution in #5
 
 ## Contributors
 Here is the list of contributors to this project
 Thank you so much for contributing!
 
-- [@meipeter](https://github.com/meipeter) Made his first contribution in #4
+- [@meipeter](https://github.com/meipeter)
+- [@Wat86](https://github.com/Wat86)
