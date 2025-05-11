@@ -312,10 +312,10 @@ let events = Events::new()
  ```
  
 [FFmpeg]: https://www.ffmpeg.org/about.html
-[ass_parser]: https://github.com/Aavtic/ass_parser
+[ass_parser]: https://aavtic.dev/projects/ass_parser
  
 [FFmpeg]: https://www.ffmpeg.org/about.html
-[ass_parser]: https://github.com/Aavtic/ass_parser
+[ass_parser]: https://aavtic.dev/projects/ass_parser
 [Crate Badge]: https://img.shields.io/crates/v/ass_parser?logo=rust&style=flat-square&logoColor=E05D44&color=E05D44
 [Docs Badge]: https://img.shields.io/docsrs/ass_parser?logo=rust&style=flat-square&logoColor=E05D44
 [Crate]: https://crates.io/crates/ass_parser/
