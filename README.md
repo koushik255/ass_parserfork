@@ -310,6 +310,10 @@ let events = Events::new()
  ```shell
  ffmpeg -i video.avi -vf "ass=new_subtitles.ass" output.avi
  ```
+
+# Extras
+
+Checkout my website where I demonstrate using this library to generate subtitles for a music video with random subtitle colors: [aavtic.dev/projects/ass_parser](https://aavtic.dev/projects/ass_parser)
  
 [FFmpeg]: https://www.ffmpeg.org/about.html
 [ass_parser]: https://aavtic.dev/projects/ass_parser
