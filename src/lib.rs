@@ -1549,46 +1549,53 @@ impl Parser {
     }
 
     for d in &raw_dialogues {
-        // Find the first 9 commas
-        let mut comma_idx = Vec::with_capacity(9);
+        let d = d.trim();
+        if d.is_empty() {
+            continue;
+        }
+        
+        // Split into exactly 10 parts - first 9 fields + remaining text
+        let mut parts = Vec::new();
+        let mut start = 0;
+        let mut comma_count = 0;
+        
         for (i, ch) in d.char_indices() {
-            if ch == ',' {
-                comma_idx.push(i);
-                if comma_idx.len() == 9 {
-                    break;
-                }
+            if ch == ',' && comma_count < 9 {
+                parts.push(&d[start..i]);
+                start = i + 1;
+                comma_count += 1;
             }
         }
-        if comma_idx.len() < 9 {
-            // malformed line; skip or handle error
+        
+        // Add the remaining text (everything after the 9th comma)
+        if start < d.len() {
+            parts.push(&d[start..]);
+        } else {
+            parts.push("");
+        }
+        
+        // Ensure we have exactly 10 parts
+        if parts.len() != 10 {
+            eprintln!("Warning: Malformed dialogue line with {} parts: {}", parts.len(), d);
             continue;
         }
 
-        let mut prev = 0usize;
-        let mut fields: Vec<&str> = Vec::with_capacity(10);
-        for &i in &comma_idx {
-            fields.push(&d[prev..i]);
-            prev = i + 1;
-        }
-        // Text is the remainder, can include commas
-        let text = &d[prev..];
-
         let dialogue = Dialogue::new()
-            .set_layer(fields[0].trim())
-            .set_start(fields[1].trim())
-            .set_end(fields[2].trim())
-            .set_style(fields[3].trim())
-            .set_name(fields[4].trim())
-            .set_marginl(fields[5].trim())
-            .set_marginr(fields[6].trim())
-            .set_marginv(fields[7].trim())
-            .set_effect(fields[8].trim())
-            .set_text(text);
+            .set_layer(parts[0].trim())
+            .set_start(parts[1].trim())
+            .set_end(parts[2].trim())
+            .set_style(parts[3].trim())
+            .set_name(parts[4].trim())
+            .set_marginl(parts[5].trim())
+            .set_marginr(parts[6].trim())
+            .set_marginv(parts[7].trim())
+            .set_effect(parts[8].trim())
+            .set_text(parts[9]); // Don't trim the text field as it may contain intentional spaces
+        
         dialogues.push(dialogue);
     }
 
     Some(Events { dialogues: Dialogues { dialogues } })
-       
     }
     fn parse_v4(&self, v4_lines: Vec<String>) -> Option<V4Format>{
         let mut style_line: Option::<String> = None;
@@ -1898,5 +1905,6 @@ mod tests {
         assert_eq!(expected, result);
     }
 }
+
 
 
