@@ -1539,41 +1539,56 @@ impl Parser {
         Some(script_info)
 }
     fn parse_event(&self, event_lines: Vec<String>) -> Option<Events>{
-        // let mut events = Vec::new();
-        let mut raw_dialogues = Vec::new();
-        let mut dialogues = Vec::new();
-        
-        for line in event_lines {
-            if line.starts_with(EVENT_HEAD) {
-                raw_dialogues.push(line[EVENT_HEAD.len()..].to_string());
+		let mut raw_dialogues = Vec::new();
+    let mut dialogues = Vec::new();
+
+    for line in event_lines {
+        if line.starts_with(EVENT_HEAD) {
+            raw_dialogues.push(line[EVENT_HEAD.len()..].to_string());
+        }
+    }
+
+    for d in &raw_dialogues {
+        // Find the first 9 commas
+        let mut comma_idx = Vec::with_capacity(9);
+        for (i, ch) in d.char_indices() {
+            if ch == ',' {
+                comma_idx.push(i);
+                if comma_idx.len() == 9 {
+                    break;
+                }
             }
         }
-        for dialogue in &raw_dialogues {
-            let splitted_dialogue: Vec<&str> = dialogue.split(',').collect();
-            let dialogue = Dialogue::new().
-                set_layer(splitted_dialogue[0]).
-                set_start(splitted_dialogue[1]).
-                set_end(splitted_dialogue[2]).
-                set_style(splitted_dialogue[3]).
-                set_name(splitted_dialogue[4]).
-                set_marginl(splitted_dialogue[5]).
-                set_marginr(splitted_dialogue[6]).
-                set_marginv(splitted_dialogue[7]).
-                set_effect(splitted_dialogue[8]).
-                set_text(splitted_dialogue[9]);
-            
-            dialogues.push(dialogue);
+        if comma_idx.len() < 9 {
+            // malformed line; skip or handle error
+            continue;
         }
 
-        let dialogues = Dialogues {
-            dialogues,
-        };
+        let mut prev = 0usize;
+        let mut fields: Vec<&str> = Vec::with_capacity(10);
+        for &i in &comma_idx {
+            fields.push(&d[prev..i]);
+            prev = i + 1;
+        }
+        // Text is the remainder, can include commas
+        let text = &d[prev..];
 
-        return Some(Events {
-            dialogues,
-        })
+        let dialogue = Dialogue::new()
+            .set_layer(fields[0].trim())
+            .set_start(fields[1].trim())
+            .set_end(fields[2].trim())
+            .set_style(fields[3].trim())
+            .set_name(fields[4].trim())
+            .set_marginl(fields[5].trim())
+            .set_marginr(fields[6].trim())
+            .set_marginv(fields[7].trim())
+            .set_effect(fields[8].trim())
+            .set_text(text);
+        dialogues.push(dialogue);
+    }
 
-
+    Some(Events { dialogues: Dialogues { dialogues } })
+       
     }
     fn parse_v4(&self, v4_lines: Vec<String>) -> Option<V4Format>{
         let mut style_line: Option::<String> = None;
@@ -1883,4 +1898,5 @@ mod tests {
         assert_eq!(expected, result);
     }
 }
+
 
