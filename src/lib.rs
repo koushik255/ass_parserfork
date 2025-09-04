@@ -1834,13 +1834,13 @@ fn _write_dialogues(filename: &str, dialogues: Vec<String>) {
     file.seek(std::io::SeekFrom::Start(dialogue_idx.try_into().unwrap())).unwrap();
 
     for line in dialogues {
-        file.write(line.as_bytes()).unwrap();
+        file.write_all(line.as_bytes()).unwrap();
     } 
 }
 
 fn write_contents(filename: &str, contents: &str) {
     let mut file = fs::File::create(filename).unwrap();
-    file.write(contents.as_bytes()).unwrap();
+    file.write_all(contents.as_bytes()).unwrap();
 }
 
 fn get_contents(filename: &str) -> std::result::Result<String, std::io::Error>{
@@ -1883,3 +1883,4 @@ mod tests {
         assert_eq!(expected, result);
     }
 }
+
